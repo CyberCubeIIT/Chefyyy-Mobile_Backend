@@ -56,4 +56,4 @@ def process_json():
         return jsonify(Response = "False", Error = "Internal Error")
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=true)
+    app.run(debug=true)
