@@ -13,6 +13,7 @@ from PIL import Image
 from cv2 import cv2
 from keras.models import load_model
 import urllib.request
+from os import environ
 
 from sqlalchemy import true
 
@@ -56,4 +57,4 @@ def process_json():
         return jsonify(Response = "False", Error = "Internal Error")
 
 if __name__ == '__main__':
-    app.run(debug=true)
+    app.run(debug=True, host='0.0.0.0', port=environ.get("PORT",5000))
