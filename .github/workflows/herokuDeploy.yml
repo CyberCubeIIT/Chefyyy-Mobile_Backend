@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Build, Push and Deploy to Heroku # set whatever name you want to this step
         id: heroku
         uses: jctaveras/heroku-deploy@v3.1.0 # use the latest version of the action
