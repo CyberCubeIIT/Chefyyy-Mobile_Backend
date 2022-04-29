@@ -41,8 +41,7 @@ def download_image_and_save(url):
 
 @app.route('/url', methods=['POST'])
 def process_json():
-    content_type = request.headers.get('Content-Type')
-    if (content_type == 'application/json'):
+    try:
         json = request.json
         download_image_and_save(json['url'])
         imageArray = convert_to_array("veg.jpg")
@@ -53,8 +52,9 @@ def process_json():
         prediction = model.predict(numpyImageArray)
         label = np.argmax(prediction)
         return jsonify(Response = "True", Prediction = vegetableDict[label])
-    else:
+    except:
         return jsonify(Response = "False", Error = "Internal Error")
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=environ.get("PORT",5000))
+    # app.run(port=5000, debug=true) # Debug Run Mode
