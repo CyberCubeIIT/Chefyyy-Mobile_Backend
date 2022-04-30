@@ -1,6 +1,6 @@
-/test
-/train
-/validation
+Training/test
+Training/train
+Training/validation
 *.zip
-/.ipynb_checkpoints
+Training/.ipynb_checkpoints
 *.sav
