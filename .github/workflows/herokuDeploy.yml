@@ -3,18 +3,17 @@ on: # set the events you would like to trigger this job
   push:
     tags:
       - '*'
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - name: Build, Push and Deploy to Heroku # set whatever name you want to this step
+        uses: actions/checkout@v2
+      - name: Build, Push and Deploy to Heroku #set the whatever name you want to this step
         id: heroku
-        uses: jctaveras/heroku-deploy@v3.1.0 # use the latest version of the action
+        uses: mtsmachado8/heroku-deploy@v2.0.3  # use the latest version of the action
         with:
           email: ${{ secrets.HEROKU_EMAIL }} # your heroku email
-          api_key: ${{ secrets.HEROKU_API_KEY }} # your heroku api key
+          api_key: ${{ secrets.HEROKU_API_KEY }} # your  heroku api key
           app_name: ${{ secrets.HEROKU_APP_NAME }} # you aplication name
-          dockerfile_path: '.' # set the path to the folder where the Dockerfile is located
-          process_type: 'web' # Specify the process type you want to build and release
