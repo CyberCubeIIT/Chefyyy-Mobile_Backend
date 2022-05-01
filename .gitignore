@@ -1,6 +1,5 @@
-Training/test
-Training/train
-Training/validation
+Training/*
+!Training/Train Model.ipynb
 *.zip
 Training/.ipynb_checkpoints
 *.sav
